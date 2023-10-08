@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+  }
+
+#app{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #870c0c;
+  }
+h2{
+    font-size: 24px;
+    font-weight: bold;
+    color: #870c0c;
+}
+
+.inputClass {
+    color: #333;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+}
+
+
+button {
+    display: inline-block;
+    background-color: #870c0c;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button:hover, button:focus{
+    background-color: #fff;
+    color: #870c0c;
+}
+
+.partsList{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+}
+
+.partsItem{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.selected {
+    background-color: #42e9f5;
+}
+
+.description{
+    width: 50%;
+}
+
+.partsInfo{
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.partsInfo h3{
+    font-size: 18px;
+    margin: 10px;
+    color: #333;
+}

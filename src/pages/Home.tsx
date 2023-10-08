@@ -4,7 +4,7 @@ import PartDescriptor from '../components/PartDescriptor';
 import { decrementPart, incrementPart } from '../actions/parts';
 import { partsSelector } from '../selectors/local';
 
-import './Home.sass';
+import './Home.scss';
 
 const Home = () => {
   const [selectedPart, setSelectedPart] = useState<string>(null);
@@ -24,6 +24,7 @@ const Home = () => {
       <div>
         <input
           type="text"
+          className="inputClass"
           value={inputValue}
           onChange={handleInputChange}
           placeholder="Enter a new part..."
@@ -34,8 +35,8 @@ const Home = () => {
       <hr />
       <ul className="partsList">
         {parts.map(part => (
-          <li style={{backgroundColor : selectedPart === part.name ? '#42e9f5' : '' }} key={part.name} onClick={() => setSelectedPart(part.name)}>
-            {part.name} {part.amount}
+          <li className={`partsItem ${selectedPart === part.name ? 'selected' : ''}`} key={part.name} onClick={() => setSelectedPart(part.name)}>
+            <div className="description">{part.name} {part.amount}</div>
             <button
               onClick={e => {
                 dispatch(incrementPart(part.name));
