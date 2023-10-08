@@ -36,6 +36,15 @@ const partsReducer = (state = initialState, action: AnyAction) => {
       newState[idx].amount -= 1;
       return newState;
     }
+    case 'ADD_NEW_PART': {
+      const newState = [...state, {
+        name: action.name,
+        amount: 0,
+      }];
+      
+      return newState;
+    }
+
     
     default:
       return state;

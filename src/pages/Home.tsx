@@ -8,12 +8,29 @@ import './Home.sass';
 
 const Home = () => {
   const [selectedPart, setSelectedPart] = useState<string>(null);
+  const [inputValue, setInputValue] = useState<string>('');
   const parts = useSelector(partsSelector);
   const dispatch = useDispatch();
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+  const handleSubmit = (e) => {
+    dispatch({type: 'ADD_NEW_PART', name: inputValue})
+  };
 
   return (
     <div>
-      <h1>Parts Counter</h1>
+      <h1>Enter a new part</h1>
+      <div>
+        <input
+          type="text"
+          value={inputValue}
+          onChange={handleInputChange}
+          placeholder="Enter a new part..."
+        />
+        <button onClick={handleSubmit}>Submit</button>
+      </div>
+      <h1>Parts Counter</h1> 
       <hr />
       <ul className="partsList">
         {parts.map(part => (
@@ -22,6 +39,7 @@ const Home = () => {
             <button
               onClick={e => {
                 dispatch(incrementPart(part.name));
+                e.stopPropagation();
               }}
             >
               +
@@ -29,6 +47,7 @@ const Home = () => {
             <button
               onClick={e => {
                 dispatch(decrementPart(part.name));
+                e.stopPropagation();
               }}
             >
               -
