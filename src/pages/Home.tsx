@@ -41,7 +41,7 @@ const Home = () => {
       {selectedPart &&
         (() => {
           const part = parts.find(x => x.name === selectedPart);
-          return <PartDescriptor name={part.name} amount={part.amount} />;
+          return <PartDescriptor name={part.name} amount={part.amount} key={part.name}/>;
         })()}
     </div>
   );
